@@ -1,0 +1,33 @@
+.card-img-top {
+transition: all 0.2s ease-in-out;
+}
+
+.card-img-top:hover {
+    transform:scale(1.8);
+
+}
+
+.overflow {
+    overflow: hidden;
+}
+
+.btn1 {
+    height: 120%;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 60px;
+    font-weight: 600;
+    background: rgb(33,37,41);
+    color:white;
+    font-size: 30px;
+}
+
+.btn1:hover{
+    background: rgb(190,47,47);
+    transition: 0.4s;
+}
+
+.labelT{
+    font-size: calc(1.5em + 1vw);
+}

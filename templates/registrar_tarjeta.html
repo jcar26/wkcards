@@ -1,0 +1,118 @@
+{% extends "baseWiki.html" %}
+{% load static %}
+
+{% block title %}
+    Registro de tarjeta
+
+{% endblock %}
+
+{% block content %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="../static/registrar_tarjeta.css?v4" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+ <body class="bg-light">
+    <section class="login">
+
+        <div class="container col-lg-12">
+            <div class="row">
+            <div class="col-lg-6 backImg">
+
+                    <img class="img-fluid" id="chosen-image" src="">
+            </div>
+
+                <div class="col-lg-6 bg-light shadow test">
+                    <div class="signup-form">
+                        <form action="" method="post" class="col-lg-12 p-3" enctype="multipart/form-data"> {% csrf_token %}
+                            <h1 class="animate__animated animate__heartBeat text-center" >Registra una tarjeta</h1>
+                            <div class="row">
+
+                                <div class="mb-3 col-lg-6 mt-3 ">
+                                    <label class="mb-2 typo">Fecha de registro:<span class="text-danger">*</span></label>
+                                </div>
+
+                                <div class="mb-3 col-lg-6 mt-3">
+                                    <input type="text" id="fechaActual" class="form-control" value="" disabled>
+                                </div>
+
+                                <div class="mb-3 col-lg-6">
+                                    <label class="mb-2 typo">Título de la tarjeta<span class="text-danger">*</span></label>
+
+                                    <!--<input type="text" class="form-control" placeholder="Ingresa el título">-->
+                                    {{ formTarjeta.titulo }}
+                                </div>
+
+                                <div class="mb-3 col-lg-6">
+                                    <label class="mb-2 typo">Selecciona un tipo<span class="text-danger">*</span></label>
+                                    <!--<select name = "dropdown" class="form-controlDrop" >
+                                        <option value="" selected="selected" hidden="hidden">Selecciona un tipo</option>
+                                       <option value="1">Tipo 1</option>
+                                       <option value="2">Tipo 2</option>
+                                       <option value="3">Tipo 3</option>
+                                       <option value="4">Tipo 4</option>
+                                       <option value="5">Tipo 5</option>
+                                     </select>-->
+                                    {{ formTipo.tipo }}
+                                </div>
+
+                                <div class="mb-3 col-lg-12 mt-2">
+                                    <label class="mb-2 typo">Descripción de la tarjeta<span class="text-danger">*</span></label>
+                                     <!--<textarea class="form-control" placeholder="Ingresa aquí la descripción" rows="2" style="height:100%"></textarea>-->
+                                    {{ formTarjeta.descripcion }}
+                                </div>
+                                <div class="mb-5 mt-4 p-3" style="color: red">
+                                    {% if msg %}
+                                        <p>{{ msg }}</p> <!--ESTO LO RESUELVES TU JOEL-->
+                                    {% endif %}
+                                </div>
+                                <div class="col-lg-12 mt-5 flex-end">
+                                   <input type="file" id="upload-button" accept="image/*" name="foto">
+
+                                    <label id="lblimg" for="upload-button" style="width: 100%">
+                                        <i class="fas fa-upload" ></i> &nbsp; Selecciona una imágen
+                                    </label>
+
+                                </div>
+
+                                <div class="col-lg-6 mt-5">
+                                   <input type="button" class="btn1" value="Cancelar"/>
+
+                                </div>
+
+                                <div class="col-lg-6 mt-5">
+                                    <!--<button class="btn1">Publicar</button>-->
+                                    <input type="submit" value="Publicar" class="btn1"/>
+                                </div>
+
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <script src="../static/registrar_tarjeta.js"></script>
+  </body>
+
+     <div class="pb-5">
+
+    </div>
+    <div class="pb-5">
+
+    </div>
+<!--
+<h1>registrar tarjeta bro</h1>
+    <form method="post" action="" enctype="multipart/form-data">{# {% csrf_token %} #}
+        <table>
+            {# {{ formTarjeta.foto }} #}
+           {#  {{ formTipo.as_table }} #}
+        </table>
+        <input type="submit" value="Enviar"/>
+    </form>
+-->
+{% endblock %}

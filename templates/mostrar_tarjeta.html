@@ -1,0 +1,50 @@
+{% extends "baseWiki.html" %}
+{% load static %}
+{% block title %}
+    Tarjetas
+{% endblock %}
+
+{% block content %}
+    <link rel="stylesheet" href="../static/mostrar_tarjeta.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <div class="container pb-5 animate__animated animate__fadeInDown">
+    <div class="row g-3">
+
+        {% if tarjetas %}
+            {% for i in tarjetas %}
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card text-center text-white bg-dark border-light h-100">
+                            <div class="overflow">
+                                {% if i.foto %}
+                                    <img alt="{{ i.titulo }}" src="{{ i.foto.url }}"  height="400" alt="MiWaifu1"  class="card-img-top"/>
+                                {% else %}
+                                    <img alt="defult img" src="{% static '/images/LOGO_PYTHON_4.png' %}"  height="400" alt="MiWaifu1"  class="card-img-top"/>
+                                {% endif %}
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <h4 class="card-title mb-3 " >{{ i.titulo }}</h4>
+                                <h5 class="card-title mb-3 " >{{ i.idtipotarjeta.tarjeta_tipo }}</h5>
+                                <p class="card-text">{{ i.descripcion|slice:":100"}}...</p>
+                                <form action="/detalle_tarjeta/{{ i.id }}" method="GET" class="mt-auto">
+                                    <!--<a href="#" class="btn btn-danger btn-lg mt-auto">Ver más</a>-->
+                                    <input value="Ver más" class="btn btn-danger btn-lg mt-auto" type="submit">
+                                </form>
+                            </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div >
+      <!-- Separación footer -->
+    </div >
+    <div class="pb-5">
+
+    </div>
+    <div class="pb-5">
+
+    </div>
+{% endblock %}
+    {# Para las tarjetas #}
+
+
